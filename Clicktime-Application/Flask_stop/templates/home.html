@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset-UTF-8" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function() {
+          $('a#process_input').bind('click', function() {
+            $.getJSON('/background_process', {
+              proglang: $('input[name="proglang"]').val(),
+            }, function(data) {
+              $("#result").text(data.result);
+            });
+            return false;
+          });
+        });
+    </script>
+   <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <div id="wrapper">
+        <button id = "location-button"> Get user location</button>    
+        <div id="output"></div>
+    </div>
+<script>
+    
+    // $('#location-button').click(function(){
+    //     console.log("test")
+    //     if(navigator.geolocation)
+    //         // console.log("test")
+    //         navigator.geolocation.getCurrentPosition(function(position){
+    //             console.log(position);
+    //         // {
+    //         //     console.log("working I guess");
+    //         //     console.log(position);
+    //         // };
+    //         });
+    //     else   
+    //         console.log("geolocation is not supported");
+
+    // });
+
+</script>
+<table> 
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Password</th>
+    </tr>
+    <?php
+    $conn = mysqli_connect("localhost", "root", "ChristmasTime", "History_Schema");
+    if ($conn-> connect_error){
+        die("Connection Failed:". $conn-> connect_error)
+    }
+    ?>
+</table> 
+</body>
+</html>
